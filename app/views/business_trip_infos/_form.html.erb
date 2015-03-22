@@ -16,16 +16,23 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label "启程时间", :class => 'control-label' %>
+    <%= f.label "标题", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :start_date, :class => 'form-control' %>
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business_trip_info[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "启程时间", :class => 'control-label'%>
+    <div class="controls">
+      <%= f.text_field :start_date, :class => 'form-control datepicker-field', :data => { :provide => 'datepicker' } %>
     </div>
     <%= error_span(@business_trip_info[:start_date]) %>
   </div>
   <div class="control-group">
     <%= f.label "返程时间", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :end_date, :class => 'form-control' %>
+      <%= f.text_field :end_date, :class => 'form-control datepicker-field', :data => { :provide => 'datepicker' } %>
     </div>
     <%= error_span(@business_trip_info[:end_date]) %>
   </div>

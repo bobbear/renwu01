@@ -1,11 +1,11 @@
 <%- model_class = BusinessTripInfo -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>个人出差信息表</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>编号</th>
+      <th>标题</th>
       <th>用户</th>
       <th>启程时间</th>
       <th>返程时间</th>
@@ -18,7 +18,8 @@
   <tbody>
     <% @business_trip_infos.each do |business_trip_info| %>
       <tr>
-        <td><%= link_to business_trip_info.id, business_trip_info_path(business_trip_info) %></td>
+        <td><%= link_to_unless business_trip_info.title.nil?, 
+          business_trip_info.title, business_trip_info_path(business_trip_info) %></td>
         <td><%= business_trip_info.user.email %></td>
         <td><%= business_trip_info.start_date %></td>
         <td><%= business_trip_info.end_date %></td>

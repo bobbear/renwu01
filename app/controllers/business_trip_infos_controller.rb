@@ -74,6 +74,6 @@ class BusinessTripInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_trip_info_params
-      params.require(:business_trip_info).permit(:user_id, :start_date, :end_date, :destination, :total_expense)
+      params.require(:business_trip_info).permit(:user_id, :start_date, :end_date, :destination, :total_expense, :title)
     end
 end

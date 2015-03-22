@@ -1,18 +1,18 @@
 <%- model_class = BusinessTripInfo -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1>个人出差信息表</h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @business_trip_info.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
+  <dt><strong>标题:</strong></dt>
+  <dd><%= @business_trip_info.title %></dd>
+  <dt><strong>启程日期:</strong></dt>
   <dd><%= @business_trip_info.start_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
+  <dt><strong>返程日期:</strong></dt>
   <dd><%= @business_trip_info.end_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:destination) %>:</strong></dt>
+  <dt><strong>目的地:</strong></dt>
   <dd><%= @business_trip_info.destination %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:total_expense) %>:</strong></dt>
+  <dt><strong>总花费:</strong></dt>
   <dd><%= @business_trip_info.total_expense %></dd>
 </dl>
 
