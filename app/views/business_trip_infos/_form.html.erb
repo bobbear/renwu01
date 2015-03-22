@@ -1,0 +1,51 @@
+<%= form_for @business_trip_info, :html => { :class => "form-horizontal business_trip_info" } do |f| %>
+
+    <% if @business_trip_info.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@business_trip_info.errors.count, "error") %> prohibited this business_trip_info from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @business_trip_info.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label "启程时间", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :start_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business_trip_info[:start_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "返程时间", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :end_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business_trip_info[:end_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "目的地", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :destination, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business_trip_info[:destination]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label "总花费", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :total_expense, :class => 'form-control', :readonly => true, :value => @business_trip_info.total_expense %>
+    </div>
+    <%= error_span(@business_trip_info[:destination]) %>
+  </div>
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            business_trip_infos_path, :class => 'btn btn-default' %>
+
+<% end %>

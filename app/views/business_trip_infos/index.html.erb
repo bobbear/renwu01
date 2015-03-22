@@ -1,0 +1,44 @@
+<%- model_class = BusinessTripInfo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>用户</th>
+      <th>启程时间</th>
+      <th>返程时间</th>
+      <th>目的地</th>
+      <th>总花费</th>
+      <th>创建日期</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @business_trip_infos.each do |business_trip_info| %>
+      <tr>
+        <td><%= link_to business_trip_info.id, business_trip_info_path(business_trip_info) %></td>
+        <td><%= business_trip_info.user.email %></td>
+        <td><%= business_trip_info.start_date %></td>
+        <td><%= business_trip_info.end_date %></td>
+        <td><%= business_trip_info.destination %></td>
+        <td><%= business_trip_info.total_expense %></td>
+        <td><%= time_ago_in_words business_trip_info.created_at %></td>
+        <td>
+          <%= link_to '修改',
+                      edit_business_trip_info_path(business_trip_info), :class => 'btn btn-default btn-xs' %>
+          <%= link_to '删除',
+                      business_trip_info_path(business_trip_info),
+                      :method => :delete,
+                      :data => { :confirm => '你确定要删除吗?' },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新建',
+            new_business_trip_info_path,
+            :class => 'btn btn-primary' %>

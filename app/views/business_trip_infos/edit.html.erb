@@ -1,0 +1,22 @@
+<%- model_class = BusinessTripInfo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>
+
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>商品</th>
+      <th>数量</th>
+      <th>单价</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @business_trip_info.expenses %>
+  </tbody>
+</table>
+<%= link_to '新增花费', new_business_trip_info_expense_path(@business_trip_info), :class => 'btn btn-primary' %>

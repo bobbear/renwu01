@@ -43,3 +43,11 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'devise'
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end

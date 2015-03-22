@@ -1,0 +1,15 @@
+<tr>
+  <td><%= link_to expense.id, business_trip_info_expense_path(expense.business_trip_info, expense) %></td>
+  <td><%= expense.goods_name %></td>
+  <td><%= expense.quantity %></td>
+  <td><%= expense.unit_price %></td>
+  <td>
+    <%= link_to "修改",
+      edit_business_trip_info_expense_path(expense.business_trip_info, expense), :class => 'btn btn-default btn-xs' %>
+    <%= link_to "删除",
+      business_trip_info_expense_path(expense.business_trip_info, expense),
+      :method => :delete,
+      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+      :class => 'btn btn-xs btn-danger' %>
+  </td>
+</tr>
